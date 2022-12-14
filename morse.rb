@@ -38,36 +38,34 @@
 }
 
 def decode_char(str)
-    return @morse_dict[str]
+  @morse_dict[str]
 end
 
-#Prints the char
-puts decode_char(".-")
+# Prints the char
+puts decode_char('.-')
 
 def decode_word(str)
-    wordList = str.split
-    word=""
-    for char in wordList do
-        word += decode_char(char)
-    end
-    return word
+  word_list = str.split
+  word = ''
+  word_list.each do |char|
+    word += decode_char(char)
+  end
+  word
 end
 
-#Prints the word
-puts decode_word("-- -.--")
+# Prints the word
+puts decode_word('-- -.--')
 
 def decode(str)
-    messageList = str.split("   ")
-    message = ""
-    for word in messageList do
-        message += decode_word(word)
-        message += " "
-    end
-    return message
+  message_list = str.split('   ')
+  message = ''
+  message_list.each do |word|
+    message += decode_word(word)
+    message += ' '
+  end
+  message
 end
 
-#Prints the entire message
-puts decode("-- -.--   -. .- -- .")
-puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
-
-
+# Prints the entire message
+puts decode('-- -.--   -. .- -- .')
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
